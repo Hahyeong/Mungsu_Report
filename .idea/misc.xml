@@ -5,10 +5,13 @@
       <map>
         <entry key="..\:/Android/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.19" />
         <entry key="..\:/Android/app/src/main/res/drawable/buttonshape.xml" value="0.224" />
+        <entry key="..\:/Android/app/src/main/res/drawable/edittextbox.xml" value="0.205" />
         <entry key="..\:/Android/app/src/main/res/layout/activity_main.xml" value="0.27134502923976606" />
         <entry key="..\:/Android/app/src/main/res/layout/fragment1.xml" value="0.28541666666666665" />
         <entry key="..\:/Android/app/src/main/res/layout/fragment2.xml" value="0.33" />
         <entry key="..\:/Android/app/src/main/res/layout/fragment3.xml" value="0.33" />
+        <entry key="..\:/Android/app/src/main/res/layout/login.xml" value="0.337037037037037" />
+        <entry key="..\:/Android/app/src/main/res/layout/signup.xml" value="0.337037037037037" />
         <entry key="..\:/Android/app/src/main/res/layout/videolayout.xml" value="0.25" />
         <entry key="..\:/Android/app/src/main/res/menu/menu_bottom.xml" value="0.25" />
         <entry key="..\:/Android/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.19" />
