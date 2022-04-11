@@ -1,0 +1,37 @@
+<resources>
+    <string name="app_name">멍수무강</string>
+
+    <!-- 영상 탭 -->
+    <string name="streaming">반려견 보기</string>
+    <string name="recording">화면 녹화</string>
+    <string name="talk">실시간 통화</string>
+
+    <string name="diary">반려견 일기</string>
+
+
+    <!-- 리포트 탭 -->
+    <string name="report">멍수무강 리포트</string>
+    <string name="daily">일간</string>
+    <string name="weekly">주간</string>
+    <string name="monthly">월간</string>
+
+    <string name="eating">식사 / 음수</string>
+    <string name="poo">배변</string>
+    <string name="bark">짖음</string>
+    <string name="abnormal">특이행동</string>
+
+    <!-- 설정 탭 -->
+    <string name="settings">설정</string>
+
+    <string name="petinform">나의 반려동물 정보</string>
+    <string name="petname">이름</string>
+    <string name="petbirth">생년월일</string>
+
+    <string name="devsettings">기기 연동 및 관리</string>
+    <string name="devname">기기명</string>
+    <string name="devtype">기종</string>
+
+    <string name="accsettings">계정 관리</string>
+    <string name="modinform">회원 정보 수정</string>
+    <string name="logout">로그아웃</string>
+</resources>
