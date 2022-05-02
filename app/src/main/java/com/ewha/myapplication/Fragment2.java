@@ -72,25 +72,20 @@ public class Fragment2 extends Fragment {
 
         ArrayList<BarEntry> entries = new ArrayList<>();
 
-        entries.add(new BarEntry(1.0f, 20));
-        entries.add(new BarEntry(2.0f, 40));
-        entries.add(new BarEntry(3.0f, 60));
-        entries.add(new BarEntry(4.0f, 30));
-        entries.add(new BarEntry(5.0f, 90));
+        entries.add(new BarEntry(1.0f, 0));
+        entries.add(new BarEntry(2.0f, 2.5f));
+        entries.add(new BarEntry(3.0f, 3));
+        entries.add(new BarEntry(4.0f, 4));
+        entries.add(new BarEntry(5.0f, 3.3f));
+        entries.add(new BarEntry(6.0f, 1));
 
         BarDataSet dataSet2 = new BarDataSet(entries, "Sinus Function");
-        dataSet2.setColor(Color.rgb(240, 120, 124));
-
-        ArrayList<Integer> colors = new ArrayList<>();
-        for (int c : ColorTemplate.LIBERTY_COLORS) {
-            colors.add(c);
-        }
-        dataSet2.setColors(colors);
+        dataSet2.setColor(Color.parseColor("#80FFA400"));
 
         BarData data = new BarData(dataSet2);
         data.setValueTextSize(10f);
         data.setDrawValues(false);
-        data.setBarWidth(0.8f);
+        data.setBarWidth(0.5f);
 
         chart.setData(data);
         chart.invalidate();
