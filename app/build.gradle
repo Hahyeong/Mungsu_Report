@@ -38,4 +38,7 @@ dependencies {
 
     implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
     implementation 'androidx.recyclerview:recyclerview:1.2.1'
+
+    // IVS viewer
+    implementation 'com.amazonaws:ivs-player:1.8.0'
 }
