@@ -2,23 +2,12 @@ package com.ewha.myapplication;
 
 import android.content.Context;
 import android.media.MediaPlayer;
-import android.net.http.SslError;
 import android.os.Bundle;
-import android.os.Handler;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
-// 웹뷰
-import android.webkit.SslErrorHandler;
-import android.webkit.WebView;
-import android.webkit.WebViewClient;
 import android.widget.Button;
-import android.webkit.WebSettings;
 
-import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.MediaController;
 import android.widget.VideoView;
 
