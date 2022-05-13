@@ -16,6 +16,7 @@ import com.github.mikephil.charting.data.BarData;
 import com.github.mikephil.charting.data.BarDataSet;
 import com.github.mikephil.charting.data.BarEntry;
 
+import com.github.mikephil.charting.formatter.ValueFormatter;
 import com.github.mikephil.charting.utils.ColorTemplate;
 import androidx.fragment.app.Fragment;
 
@@ -41,43 +42,54 @@ public class Fragment2 extends Fragment {
         chart = rootView.findViewById(R.id.barchart);
         chart.setDrawValueAboveBar(true);
 
-        // 확대 x
+        // 확대나 터치 상호작용 x
         chart.setTouchEnabled(false);
 
         chart.getDescription().setEnabled(false);
+        // 격자 구조 삽입 여부
         chart.setDrawGridBackground(false);
 
         XAxis xAxis = chart.getXAxis();
-        xAxis.setEnabled(false);
+        xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
+        xAxis.setDrawGridLines(false);
+        // x축 label string으로 변경
+        xAxis.setValueFormatter(new ValueFormatter() {
+            @Override
+            public String getFormattedValue(float value) {
+                String Xvalue = String.valueOf((int)value) + " - " + ((int)value + 4) + "시";
+                return Xvalue;
+            }
+        });
 
         YAxis leftAxis = chart.getAxisLeft();
         leftAxis.setLabelCount(6, false);
+        // 차트 좌측 최소값 설정
         leftAxis.setAxisMinValue(0.0f);
-        leftAxis.setGranularityEnabled(true);
+        // granularity ~ 단위마다 선
+        leftAxis.setGranularityEnabled(false);
         leftAxis.setGranularity(1f);
-
-
+        // 오른쪽 Y축 안 보이도록 설정
         YAxis rightAxis = chart.getAxisRight();
         rightAxis.setEnabled(false);
 
+        // 차트 범례 설정
         Legend legend2 = chart.getLegend();
         legend2.setEnabled(false);
 
-        chart.animateXY(1500, 1500);
+        // 밑에서부터 올라오는 애니메이션
+        chart.animateXY(1000, 1000);
 
         setData2();
     }
 
     private void setData2() {
-
         ArrayList<BarEntry> entries = new ArrayList<>();
-
-        entries.add(new BarEntry(1.0f, 0));
-        entries.add(new BarEntry(2.0f, 2.5f));
-        entries.add(new BarEntry(3.0f, 3));
-        entries.add(new BarEntry(4.0f, 4));
-        entries.add(new BarEntry(5.0f, 3.3f));
-        entries.add(new BarEntry(6.0f, 1));
+        entries.add(new BarEntry(0.0f, 0));
+        entries.add(new BarEntry(4.0f, 2.5f));
+        entries.add(new BarEntry(8.0f, 3));
+        entries.add(new BarEntry(12.0f, 4));
+        entries.add(new BarEntry(16.0f, 3.3f));
+        entries.add(new BarEntry(20.0f, 1));
 
         BarDataSet dataSet2 = new BarDataSet(entries, "Sinus Function");
         dataSet2.setColor(Color.parseColor("#80FFA400"));
@@ -85,11 +97,11 @@ public class Fragment2 extends Fragment {
         BarData data = new BarData(dataSet2);
         data.setValueTextSize(10f);
         data.setDrawValues(false);
-        data.setBarWidth(0.5f);
+
+        // 막대 너비 설정
+        data.setBarWidth(2.0f);
 
         chart.setData(data);
         chart.invalidate();
     }
-
-
 }

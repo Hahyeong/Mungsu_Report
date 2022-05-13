@@ -10,7 +10,7 @@
 
 
     <!-- 리포트 탭 -->
-    <string name="report">멍수무강 리포트</string>
+    <string name="report">멍수무강 활동량 그래프</string>
     <string name="daily">일간</string>
     <string name="weekly">주간</string>
     <string name="monthly">월간</string>
