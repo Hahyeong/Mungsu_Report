@@ -1,5 +1,6 @@
 package com.ewha.myapplication;
 
+import android.app.AlertDialog;
 import android.os.Bundle;
 import android.content.Intent;
 import android.os.Handler;

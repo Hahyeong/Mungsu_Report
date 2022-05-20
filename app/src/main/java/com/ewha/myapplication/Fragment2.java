@@ -2,8 +2,11 @@ package com.ewha.myapplication;
 
 import static android.content.ContentValues.TAG;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.text.Html;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -45,6 +48,14 @@ public class Fragment2 extends Fragment {
     private Button daily;
     private Button weekly;
     private Button monthly;
+
+    // 특정 행동 패턴 횟수 알림 팝업 버튼
+    private Button eating;
+    private Button bark;
+    private Button poo;
+    private Button abnormal;
+
+    AlertDialog newDialog;
 
     private ServiceApi service;
     private TextView textViewResult;
@@ -132,7 +143,52 @@ public class Fragment2 extends Fragment {
 
         textViewResult = rootView.findViewById(R.id.movementdatatest);
         showmovement();
+
+        // 특정 행동 패턴 횟수 팝업
+        eating = rootView.findViewById(R.id.eatingbutton);
+        bark = rootView.findViewById(R.id.barkbutton);
+        poo = rootView.findViewById(R.id.poobutton);
+        abnormal = rootView.findViewById(R.id.abnormalbutton);
+
+        AlertDialog.Builder newDialog = new AlertDialog.Builder(rootView.getContext(), android.R.style.Theme_DeviceDefault_Light_Dialog_Alert);
+
+        eating.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                newDialog.setMessage("오늘 반려견의 식사 및 음수 횟수: 3회");
+                newDialog.setPositiveButton(Html.fromHtml("<font color='#FFA400'>확인</font>"), null);
+                newDialog.show();
+            }
+        });
+
+        bark.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                newDialog.setMessage("오늘 반려견의 짖음 횟수: 5회");
+                newDialog.setPositiveButton(Html.fromHtml("<font color='#FFA400'>확인</font>"), null);
+                newDialog.show();
+            }
+        });
+
+        poo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                newDialog.setMessage("오늘 반려견의 배변 횟수: 2회");
+                newDialog.setPositiveButton(Html.fromHtml("<font color='#FFA400'>확인</font>"), null);
+                newDialog.show();
+            }
+        });
+
+        abnormal.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                newDialog.setMessage("오늘 반려견의 특이행동 횟수: 2회");
+                newDialog.setPositiveButton(Html.fromHtml("<font color='#FFA400'>확인</font>"), null);
+                newDialog.show();
+            }
+        });
     }
+
 
     private void showmovement() {
 

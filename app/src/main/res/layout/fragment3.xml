@@ -58,7 +58,7 @@
                         android:layout_height="33dp"
                         android:gravity="center"
                         android:letterSpacing="-0.06"
-                        android:text="@string/devinfo"
+                        android:text="@string/streaminfo"
                         android:textColor="@color/maingray"
                         android:textSize="18sp"
                         android:textStyle="bold" />
@@ -67,16 +67,6 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:background="@color/white">
-
-                        <ImageView
-                            android:id="@+id/devimg"
-                            android:layout_width="80dp"
-                            android:layout_height="80dp"
-                            android:layout_marginLeft="20dp"
-                            android:layout_marginTop="15dp"
-                            android:layout_marginRight="10dp"
-                            android:layout_weight="0"
-                            android:src="@mipmap/ic_launcher" />
 
                         <LinearLayout
                             android:layout_width="67dp"
@@ -92,7 +82,7 @@
                                 android:layout_marginTop="27dp"
                                 android:layout_marginBottom="0dp"
                                 android:letterSpacing="-0.06"
-                                android:text="@string/devname"
+                                android:text="@string/ingestserver"
                                 android:textColor="@color/black" />
 
                             <TextView
@@ -102,7 +92,7 @@
                                 android:layout_gravity="bottom|center_horizontal"
                                 android:layout_marginTop="15dp"
                                 android:letterSpacing="-0.06"
-                                android:text="@string/devtype"
+                                android:text="@string/streamKey"
                                 android:textColor="@color/black" />
                         </LinearLayout>
 
@@ -118,14 +108,16 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="27dp"
-                                android:text="기기 이름" />
+                                android:maxLines="1"
+                                android:ellipsize="end"
+                                android:text="@string/ingest_server_name" />
 
                             <TextView
                                 android:id="@+id/textView9"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="15dp"
-                                android:text="기기 종류" />
+                                android:text="@string/stream_key_value_encode" />
                         </LinearLayout>
                     </LinearLayout>
 
@@ -181,7 +173,7 @@
                                 android:layout_marginTop="5dp"
                                 android:background="@drawable/buttonshape"
                                 android:letterSpacing="-0.06"
-                                android:text="@string/devchange"
+                                android:text="@string/serverchange"
                                 android:textColor="@color/maingray"
                                 android:textSize="16sp"
                                 android:textStyle="bold" />
@@ -195,7 +187,7 @@
                                 android:layout_marginTop="10dp"
                                 android:background="@drawable/buttonshape"
                                 android:letterSpacing="-0.06"
-                                android:text="@string/reset"
+                                android:text="@string/keychange"
                                 android:textColor="@color/maingray"
                                 android:textSize="16sp"
                                 android:textStyle="bold" />

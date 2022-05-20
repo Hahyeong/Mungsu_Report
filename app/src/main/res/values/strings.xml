@@ -27,13 +27,19 @@
     <string name="petname">이름</string>
     <string name="petbirth">생년월일</string>
 
-    <string name="devinfo">기기 연동 정보</string>
-    <string name="devname">기기명</string>
-    <string name="devtype">기종</string>
+    <string name="streaminfo">실시간 영상 정보</string>
+    <string name="ingestserver">수집 서버</string>
+    <string name="streamKey">스트림 키</string>
 
     <string name="devsettings">연동 정보 수정</string>
+    <string name="serverchange">수집 서버 변경</string>
+    <string name="keychange">스트림 키 변경</string>
     <string name="devchange">연동 기기 변경</string>
     <string name="reset">연동 초기화</string>
+
+    <string name="ingest_server_name">rtmps://3c90cab980bd.global-contribute.live-video.net:443/app/</string>
+    <string name="stream_key_value">sk_ap-northeast-2_yFcoiZCkIOLg_vKCoVZPK8UBYWahI8dUXOVUmQlwASj</string>
+    <string name="stream_key_value_encode">*******</string>
 
     <!-- 회원가입 및 로그인 -->
     <string name="signup">회원가입</string>
