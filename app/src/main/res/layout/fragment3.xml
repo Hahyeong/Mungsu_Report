@@ -165,7 +165,7 @@
                             android:paddingLeft="5dp">
 
                             <Button
-                                android:id="@+id/modinformbutton"
+                                android:id="@+id/changeserver"
                                 style="@style/Widget.AppCompat.Button.Borderless"
                                 android:layout_width="270dp"
                                 android:layout_height="48dp"
@@ -179,7 +179,7 @@
                                 android:textStyle="bold" />
 
                             <Button
-                                android:id="@+id/logoutbutton"
+                                android:id="@+id/changestreamkey"
                                 style="@style/Widget.AppCompat.Button.Borderless"
                                 android:layout_width="270dp"
                                 android:layout_height="48dp"

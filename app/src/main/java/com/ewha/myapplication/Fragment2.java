@@ -7,6 +7,9 @@ import android.content.DialogInterface;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Html;
+import android.text.Spannable;
+import android.text.SpannableStringBuilder;
+import android.text.style.ForegroundColorSpan;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -91,15 +94,19 @@ public class Fragment2 extends Fragment {
                 return Xvalue;
             }
         });
+        xAxis.setSpaceMax(0.5f);
+        xAxis.setSpaceMax(0.5f);
+        xAxis.setGranularityEnabled(true);
+        xAxis.setGranularity(4.0f);
 
         YAxis leftAxis = chart.getAxisLeft();
         leftAxis.setLabelCount(6, false);
         // 차트 좌측 최소값 설정
-        leftAxis.setAxisMinValue(0.0f);
+        leftAxis.setAxisMinimum(0.0f);
         leftAxis.setAxisMaximum(4.0f);
         // granularity ~ 단위마다 선
         leftAxis.setGranularityEnabled(false);
-        leftAxis.setGranularity(1f);
+        leftAxis.setGranularity(0.5f);
         // 오른쪽 Y축 안 보이도록 설정
         YAxis rightAxis = chart.getAxisRight();
         rightAxis.setEnabled(false);
@@ -111,28 +118,96 @@ public class Fragment2 extends Fragment {
         // 밑에서부터 올라오는 애니메이션
         chart.animateXY(1000, 1000);
 
-
+        setData2();
 
         daily = rootView.findViewById(R.id.daily);
         weekly = rootView.findViewById(R.id.weekly);
         monthly = rootView.findViewById(R.id.monthly);
 
-        setData2();
         daily.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                xAxis.setValueFormatter(new ValueFormatter() {
+                    @Override
+                    public String getFormattedValue(float value) {
+                        String Xvalue = String.valueOf((int)value) + " - " + ((int)value + 4) + "시";
+                        return Xvalue;
+                    }
+                });
+                leftAxis.setLabelCount(6, false);
+                leftAxis.setAxisMaximum(4.0f);
+                chart.animateXY(1000, 1000);
                 setData2();
             }
         });
         weekly.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                xAxis.setValueFormatter(new ValueFormatter() {
+                    @Override
+                    public String getFormattedValue(float value) {
+                        String Xvalue = "";
+                        if (((int)value) == 0.0f) {
+                            Xvalue = "월요일";
+                        }
+                        else if (((int)value) == 4.0f) {
+                            Xvalue = "화요일";
+                        }
+                        else if (((int)value) == 8.0f) {
+                            Xvalue = "수요일";
+                        }
+                        else if (((int)value) == 12.0f) {
+                            Xvalue = "목요일";
+                        }
+                        else if (((int)value) == 16.0f) {
+                            Xvalue = "금요일";
+                        }
+                        else if (((int)value) == 20.0f) {
+                            Xvalue = "토요일";
+                        }
+                        else if (((int)value) == 24.0f) {
+                            Xvalue = "일요일";
+                        }
+                        return Xvalue;
+                    }
+                });
+                leftAxis.setLabelCount(7, false);
+                leftAxis.setAxisMaximum(24.0f);
+                chart.animateXY(1000, 1000);
                 setData3();
             }
         });
         monthly.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                xAxis.setValueFormatter(new ValueFormatter() {
+                    @Override
+                    public String getFormattedValue(float value) {
+                        String Xvalue = "";
+                        if (((int)value) == 0.0f) {
+                            Xvalue = "5주 전";
+                        }
+                        else if (((int)value) == 4.0f) {
+                            Xvalue = "4주 전";
+                        }
+                        else if (((int)value) == 8.0f) {
+                            Xvalue = "3주 전";
+                        }
+                        else if (((int)value) == 12.0f) {
+                            Xvalue = "2주 전";
+                        }
+                        else if (((int)value) == 16.0f) {
+                            Xvalue = "저번 주";
+                        }
+                        else if (((int)value) == 20.0f) {
+                            Xvalue = "이번 주";
+                        }
+                        return Xvalue;
+                    }
+                });
+                leftAxis.setAxisMaximum(168.0f);
+                leftAxis.setLabelCount(6, false);
+                chart.animateXY(1000, 1000);
                 setData4();
             }
         });
@@ -143,8 +218,13 @@ public class Fragment2 extends Fragment {
 
         textViewResult = rootView.findViewById(R.id.movementdatatest);
         showmovement();
+        String text = "\n  전 날의 활동량이 이전에 비해 1.2시간 증가하였습니다!\n\n  저번 주의 활동량이 이전에 비해 1.9시간 증가하였습니다!\n\n  ";
+        String text2 = "<font color='#DD4750'>'구토'</font>";
+        String text3 = " 증상으로 의심되는 행동이 포착되었습니다!\n  발견 시각 (오전 9시 23분)";
 
-        // 특정 행동 패턴 횟수 팝업
+        textViewResult.setText(text + Html.fromHtml(text2, Html.FROM_HTML_MODE_COMPACT) + text3);
+
+        // 특정 행동 패턴 횟수 팝업2
         eating = rootView.findViewById(R.id.eatingbutton);
         bark = rootView.findViewById(R.id.barkbutton);
         poo = rootView.findViewById(R.id.poobutton);
@@ -210,12 +290,12 @@ public class Fragment2 extends Fragment {
 
     private void setData2() {
         ArrayList<BarEntry> entries = new ArrayList<>();
-        entries.add(new BarEntry(0.0f, 0));
+        entries.add(new BarEntry(0.0f, 0.9f));
         entries.add(new BarEntry(4.0f, 2.5f));
         entries.add(new BarEntry(8.0f, 3));
-        entries.add(new BarEntry(12.0f, 4));
-        entries.add(new BarEntry(16.0f, 3.3f));
-        entries.add(new BarEntry(20.0f, 1));
+        entries.add(new BarEntry(12.0f, 2.0f));
+        entries.add(new BarEntry(16.0f, 0.0f));
+        entries.add(new BarEntry(20.0f, 0));
 
         BarDataSet dataSet2 = new BarDataSet(entries, "Sinus Function");
         dataSet2.setColor(Color.parseColor("#80FFA400"));
@@ -233,17 +313,18 @@ public class Fragment2 extends Fragment {
 
     private void setData3() {
         ArrayList<BarEntry> entries = new ArrayList<>();
-        entries.add(new BarEntry(0.0f, 1));
-        entries.add(new BarEntry(4.0f, 2.5f));
-        entries.add(new BarEntry(8.0f, 3));
-        entries.add(new BarEntry(12.0f, 3));
-        entries.add(new BarEntry(16.0f, 3.3f));
-        entries.add(new BarEntry(20.0f, 2));
+        entries.add(new BarEntry(0.0f, 20.0f));
+        entries.add(new BarEntry(4.0f, 20.5f));
+        entries.add(new BarEntry(8.0f, 19.5f));
+        entries.add(new BarEntry(12.0f, 20.7f));
+        entries.add(new BarEntry(16.0f, 8.4f));
+        entries.add(new BarEntry(20.0f, 0.0f));
+        entries.add(new BarEntry(24.0f, 0.0f));
 
-        BarDataSet dataSet2 = new BarDataSet(entries, "Sinus Function");
-        dataSet2.setColor(Color.parseColor("#80FFA400"));
+        BarDataSet dataSet3 = new BarDataSet(entries, "Sinus Function");
+        dataSet3.setColor(Color.parseColor("#80FFA400"));
 
-        BarData data = new BarData(dataSet2);
+        BarData data = new BarData(dataSet3);
         data.setValueTextSize(10f);
         data.setDrawValues(false);
 
@@ -256,17 +337,17 @@ public class Fragment2 extends Fragment {
 
     private void setData4() {
         ArrayList<BarEntry> entries = new ArrayList<>();
-        entries.add(new BarEntry(0.0f, 1));
-        entries.add(new BarEntry(4.0f, 2.0f));
-        entries.add(new BarEntry(8.0f, 3.5f));
-        entries.add(new BarEntry(12.0f, 4));
-        entries.add(new BarEntry(16.0f, 3.3f));
-        entries.add(new BarEntry(20.0f, 1.5f));
+        entries.add(new BarEntry(0.0f, 160.0f));
+        entries.add(new BarEntry(4.0f, 163.0f));
+        entries.add(new BarEntry(8.0f, 158.9f));
+        entries.add(new BarEntry(12.0f, 160.0f));
+        entries.add(new BarEntry(16.0f, 161.9f));
+        entries.add(new BarEntry(20.0f, 89.1f));
 
-        BarDataSet dataSet2 = new BarDataSet(entries, "Sinus Function");
-        dataSet2.setColor(Color.parseColor("#80FFA400"));
+        BarDataSet dataSet4 = new BarDataSet(entries, "Sinus Function");
+        dataSet4.setColor(Color.parseColor("#80FFA400"));
 
-        BarData data = new BarData(dataSet2);
+        BarData data = new BarData(dataSet4);
         data.setValueTextSize(10f);
         data.setDrawValues(false);
 

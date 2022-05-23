@@ -196,8 +196,10 @@
                         android:layout_weight="0"
                         android:gravity="center"
                         android:letterSpacing="-0.04"
-                        android:text="리포트 데이터 종합 평가"
-                        android:textColor="@color/maingray" />
+                        android:text="멍수무강의 코멘트"
+                        android:textColor="@color/maindeep"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
 
                     <TextView
                         android:id="@+id/movementdatatest"
