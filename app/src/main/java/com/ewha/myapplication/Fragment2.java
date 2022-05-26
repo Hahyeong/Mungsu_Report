@@ -220,7 +220,7 @@ public class Fragment2 extends Fragment {
         showmovement();
         String text = "\n  전 날의 활동량이 이전에 비해 1.2시간 증가하였습니다!\n\n  저번 주의 활동량이 이전에 비해 1.9시간 증가하였습니다!\n\n  ";
         String text2 = "<font color='#DD4750'>'구토'</font>";
-        String text3 = " 증상으로 의심되는 행동이 포착되었습니다!\n  발견 시각 (오전 9시 23분)";
+        String text3 = " 증상으로 의심되는 행동이 포착되었습니다!\n  발견 시각 (오후 3시 21분)";
 
         textViewResult.setText(text + Html.fromHtml(text2, Html.FROM_HTML_MODE_COMPACT) + text3);
 
@@ -235,7 +235,7 @@ public class Fragment2 extends Fragment {
         eating.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                newDialog.setMessage("오늘 반려견의 식사 및 음수 횟수: 3회");
+                newDialog.setMessage("오늘 반려견의 식사 및 음수 횟수: 1회");
                 newDialog.setPositiveButton(Html.fromHtml("<font color='#FFA400'>확인</font>"), null);
                 newDialog.show();
             }
@@ -244,7 +244,7 @@ public class Fragment2 extends Fragment {
         bark.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                newDialog.setMessage("오늘 반려견의 짖음 횟수: 5회");
+                newDialog.setMessage("오늘 반려견의 짖음 횟수: 2회");
                 newDialog.setPositiveButton(Html.fromHtml("<font color='#FFA400'>확인</font>"), null);
                 newDialog.show();
             }
@@ -262,7 +262,7 @@ public class Fragment2 extends Fragment {
         abnormal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                newDialog.setMessage("오늘 반려견의 특이행동 횟수: 2회");
+                newDialog.setMessage("오늘 반려견의 특이행동 횟수: 1회");
                 newDialog.setPositiveButton(Html.fromHtml("<font color='#FFA400'>확인</font>"), null);
                 newDialog.show();
             }

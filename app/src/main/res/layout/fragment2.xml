@@ -180,35 +180,40 @@
                 app:cardElevation="5dp"
                 app:cardUseCompatPadding="true">
 
-                <LinearLayout
+                <ScrollView
                     android:layout_width="match_parent"
-                    android:layout_height="180dp"
-                    android:background="@color/white"
-                    android:orientation="vertical"
-                    android:padding="10dp">
+                    android:layout_height="match_parent">
 
-
-                    <TextView
-                        android:id="@+id/textView"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_weight="0"
-                        android:gravity="center"
-                        android:letterSpacing="-0.04"
-                        android:text="멍수무강의 코멘트"
-                        android:textColor="@color/maindeep"
-                        android:textSize="16sp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:id="@+id/movementdatatest"
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="0"
-                        android:letterSpacing="-0.04"
-                        android:textColor="@color/maingray"/>
-                </LinearLayout>
+                        android:background="@color/white"
+                        android:orientation="vertical"
+                        android:padding="10dp">
+
+
+                        <TextView
+                            android:id="@+id/textView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_weight="0"
+                            android:gravity="center"
+                            android:letterSpacing="-0.04"
+                            android:text="멍수무강의 코멘트"
+                            android:textColor="@color/maindeep"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/movementdatatest"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0"
+                            android:letterSpacing="-0.04"
+                            android:textColor="@color/maingray" />
+                    </LinearLayout>
+                </ScrollView>
 
             </androidx.cardview.widget.CardView>
 
